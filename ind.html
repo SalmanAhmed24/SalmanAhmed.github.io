@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>image slider</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="jqzoomer.1.0.js"></script>
+<script>
+jQuery(document).ready(function() {
+                jQuery("#salman1").jqzoomer();
+                jQuery("#salman2").jqzoomer();
+                jQuery("#salman3").jqzoomer();
+                jQuery("#salman4").jqzoomer();
+                jQuery("#salman5").jqzoomer();
+            });
+$(function () {
+    $('a').on("click", function (e) {
+        e.preventDefault();
+    });
+});
+</script>
+</head>
+<body>
+  <div class="container" style="width: 100%">
+      <a class="btn-left" style="color: #1aaded;" onclick="plusDivs(-1)">&#10094;</a>
+      <a class="btn-right" style="color: #1aaded;"   onclick="plusDivs(+1)">&#10095;</a>
+  <div class="salman" id="salman1">
+      <a href="800.jpg">
+          <img src="https://unsplash.it/500/400?image=169" />
+      </a>
+  </div>
+  <div class="salman" id="salman2">
+      <a href="https://unsplash.it/1000/800?image=170">
+          <img src="https://unsplash.it/500/400?image=170" />
+      </a>
+  </div>
+  <div class="salman" id="salman3">
+      <a href="https://unsplash.it/1000/800?image=171">
+          <img src="https://unsplash.it/500/400?image=171" />
+      </a>
+  </div>
+  <div class="salman" id="salman4">
+      <a href="https://unsplash.it/1000/800?image=172">
+          <img src="https://unsplash.it/500/400?image=172" />
+      </a>
+  </div>
+    <div class="salman" id="salman5">
+      <a href="https://unsplash.it/1000/800?image=173">
+          <img src="https://unsplash.it/500/400?image=173" />
+      </a>
+  </div> 
+<div class="col-3"></div><div class="col-3"></div><div class="col-3"></div>
+  <div class="flex-row">
+    <div class="flex-column pt-1">
+      <img class="demo p-2" src="https://unsplash.it/400/300?image=169" width="80px" height="80px" onclick="currentDiv(1)">
+      <img class="demo p-2" src="https://unsplash.it/400/300?image=170" width="80px" height="80px" onclick="currentDiv(2)">
+      <img class="demo p-2" src="https://unsplash.it/400/300?image=171" width="80px" height="80px" onclick="currentDiv(3)">
+      <img class="demo p-2" src="https://unsplash.it/400/300?image=172" width="80px" height="80px" onclick="currentDiv(4)">
+      <img class="demo p-2" src="https://unsplash.it/400/300?image=173" width="80px" height="80px" onclick="currentDiv(5)">
+    </div>
+  </div>
+</div>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("salman");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+}
+</script>
+</body>
+</html>
